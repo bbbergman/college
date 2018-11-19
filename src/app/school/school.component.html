@@ -1,0 +1,87 @@
+
+<div class="row">
+  <div class="col offset-3">
+    <div *ngIf="!showAll" >
+    <div ngbDropdown class="d-inline-block">
+      <button  id="dropdownBasic1" ngbDropdownToggle>בחר שנה </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button class="dropdown-item" (click)="updateYearAndShowEvents('2018')" >2018</button>
+        <button class="dropdown-item" (click)="updateYearAndShowEvents('2017')">2017</button>
+        <button class="dropdown-item" (click)="updateYearAndShowEvents('2016')">2016</button>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="col">
+    <div *ngIf="!showAll" >
+    <div ngbDropdown class="d-inline-block">
+      <button  id="dropdownBasic2" ngbDropdownToggle>בחר חודש </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button class="dropdown-item" (click)="updateMonth('12')">12</button>
+        <button class="dropdown-item" (click)="updateMonth('11')">11</button>
+        <button class="dropdown-item" (click)="updateMonth('10')">10</button>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<br><br>
+<div *ngIf="show && !showAll" >
+  <div class="flex-container">
+    <div class="flex-item"  *ngFor="let event of events; let i = index">
+      <div *ngIf="event.school === schoolName && event.month === userMonth && event.year === userYear">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">{{event.school}}</h6>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{event.date}}</li>
+            <li class="list-group-item">{{event.time}}</li>
+          </ul>
+          <div class="card-body">
+            <h5 class="card-title">{{event.title}}</h5>
+            <p class="card-text">{{event.subTitle}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">  <a href="#" class="card-link">{{event.location}}</a><i class="material-icons">place</i></li>
+            <li class="list-group-item">  <a href="#" class="card-link">להרשמה</a> <i class="material-icons" style="font-size:36px">edit</i></li>
+            <li class="list-group-item">  <a href="#" class="card-link">הוסף ליומן</a><i class="material-icons">event</i></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showAll">
+  <div class="flex-container">
+    <div class="flex-item"  *ngFor="let event of events; let i = index">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">{{event.school}}</h6>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{event.date}}</li>
+          <li class="list-group-item">{{event.time}}</li>
+        </ul>
+        <div class="card-body">
+          <h5 class="card-title">{{event.title}}</h5>
+          <p class="card-text">{{event.subTitle}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">  <a href="#" class="card-link">{{event.location}}</a><i class="material-icons">place</i></li>
+          <li class="list-group-item">  <a href="#" class="card-link">להרשמה</a> <i class="material-icons" style="font-size:36px">edit</i></li>
+          <li class="list-group-item">  <a href="#" class="card-link">הוסף ליומן</a><i class="material-icons">event</i></li>
+        </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
